@@ -15,6 +15,7 @@ var messages = document.querySelectorAll(".c-virtual_list__item")
 function deleteMessage(messages, index) {
   console.log("deleteMessage")
   if (index >= messages.length) {
+    console.log("index bigger than messages length")
     return
   }
 
@@ -38,23 +39,21 @@ function deleteMessage(messages, index) {
               else {
                 console.log("no confirmButton")
               }
+              setTimeout(function() { deleteMessage(messages, index + 1) }, 100)
             }, 500)
           }, 500)
         }
         else {
           console.log("no deleteButton")
+          setTimeout(function() { deleteMessage(messages, index + 1) }, 100)
         }
-      }, 500)
+      }, 100)
     }
     else {
       console.log("no actionsButton")
+      setTimeout(function() { deleteMessage(messages, index + 1) }, 100)
     }
-  }, 500)
-
-  var nextIndex = index + 1
-  if (nextIndex < messages.length) {
-    setTimeout(function() { deleteMessage(messages, nextIndex) }, 2000)
-  }
+  }, 100)
 }
 
 deleteMessage(messages, 0)
