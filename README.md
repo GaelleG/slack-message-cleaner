@@ -35,7 +35,7 @@ function deleteMessage(messages, index) {
           setTimeout(function() {
             deleteButton.click()
             setTimeout(function() {
-              confirmButton = document.querySelector("[data-qa=generic_dialog_go]")
+              confirmButton = document.querySelector("[data-qa=dialog_go]")
               if (confirmButton) {
                 confirmButton.click()
               }
@@ -108,7 +108,7 @@ function deleteMessage() {
           setTimeout(function() {
             deleteButton.click()
             setTimeout(function() {
-              confirmButton = document.querySelector("[data-qa=generic_dialog_go]")
+              confirmButton = document.querySelector("[data-qa=dialog_go]")
               if (confirmButton) {
                 confirmButton.click()
                 deletedNumber++
