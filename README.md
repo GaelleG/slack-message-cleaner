@@ -88,15 +88,20 @@ var deletedNumber = 0
 
 function deleteMessage() {
   console.log("deleteMessage")
+  var user = document.querySelector(`a.c-message__sender_link[href="/team/${USER_TO_CLEAN}"]`)
+  if (user == null) {
+    console.error(`can't find user ${USER_TO_CLEAN}`)
+    return
+  }
   var message = null
   try {
-    message = document.querySelector(`a.c-message__sender_link[href="/team/${USER_TO_CLEAN}"]`).parentNode.parentNode.parentNode.parentNode.parentNode
+    message = user.parentNode.parentNode.parentNode.parentNode.parentNode
   }
   catch (e) {
     console.error("no more messages - deleted " + deletedNumber)
     return
   }
-  message.dispatchEvent(overEvent)
+  user.dispatchEvent(overEvent)
   setTimeout(function() {
     actionsButton = message.querySelector("[data-qa=more_message_actions]")
     if (actionsButton) {
